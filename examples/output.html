@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <title>PDOC</title>
+        
+        <style type="text/css">
+            body{
+                font-family: Helvetica, Arial, Sans-serif;
+                font-size: 13px;
+                color: #333;
+            }
+            
+            ul.toc{
+                list-style-type: none;
+            }
+            
+            .params{
+                border: 1px solid #CCC;
+                background: #EEE;
+                padding: 5px;
+                margin: 5px 0;
+            }
+            
+            .params p{
+                margin:0; padding:0;
+                padding-left: 15px;
+                padding-bottom: 5px;
+            }
+
+            .param .name{
+                font-weight: bold;
+            }
+            
+        </style>
+        
+    </head> 
+    <body> 
+
+    <h1>PDOC</h1>
+   
+    <h2 id=contents>Table of contents</h2> 
+    <!--begin-toc--> 
+ 
+    
+  
+    
+ 
+    
+        <ul class="toc">
+            
+        <li>    
+            <a href="#node-1">1. my_alert(text1[, text2][, text3])</a> 
+            
+        </li>
+     
+        </ul>
+    
+    <!--end-toc-->
+  
+    
+  
+    
+  
+    
+    
+    <div>
+        
+  
+        <h2 id="node-1">1. my_alert</h2>
+        
+        <div>
+            <p><code>my_alert(text1[, text2][, text3]) → undefined</code></p>
+        </div>
+        
+        
+        <div class="params">
+            
+        <div class="param">
+            <div class="first"><span class="name">text1</span> (<span class="type">string</span>) </div>
+            <p>Text to be displayed</p>
+        </div>
+    
+        <div class="param">
+            <div class="first"><span class="name">text2</span> (<span class="type">string</span>) optional</div>
+            <p>Another text to be displayed</p>
+        </div>
+    
+        <div class="param">
+            <div class="first"><span class="name">text3</span> (<span class="type">string</span>) optional</div>
+            <p>Yet another text to be displayed</p>
+        </div>
+    
+        </div>
+    
+        
+        <div><p>Displays an alert dialog with input values concated into one string.
+Usage example:</p>
+
+<pre><code>my_alert("hello", "world");
+// alerts "hello world"
+</code></pre></div>
+  
+    
+    </div>
