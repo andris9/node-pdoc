@@ -33,3 +33,8 @@ Supported markup
 Node-pdoc doesn't support Prototype classes and mixins. Currently constants are also not supported. Everything else should be quite fine.
 
 See [PDOC manual](http://pdoc.org/syntax.html) for documentation.
+
+TODO
+----
+
+Add PDOC compatible comments to node-pdoc source. Currently comments are extremely sparse :S
