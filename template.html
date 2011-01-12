@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <title>{{title}}</title>
+        
+        <style type="text/css">
+            body{
+                font-family: Helvetica, Arial, Sans-serif;
+                font-size: 13px;
+                color: #333;
+            }
+            
+            ul.toc{
+                list-style-type: none;
+            }
+            
+            .params{
+                border: 1px solid #CCC;
+                background: #EEE;
+                padding: 5px;
+                margin: 5px 0;
+            }
+            
+            .params p{
+                margin:0; padding:0;
+                padding-left: 15px;
+                padding-bottom: 5px;
+            }
+
+            .param .name{
+                font-weight: bold;
+            }
+            
+        </style>
+        
+    </head> 
+    <body> 
+
+    <h1>{{title}}</h1>
+   
+    <h2 id=contents>Table of contents</h2> 
+    <!--begin-toc--> 
+ 
+    {%maintoc%}
+        <ul class="toc">
+            {{toclist}} 
+        </ul>
+    {%/maintoc%}
+  
+    {%toc%}
+        <li>    
+            <a href="{{tocurl}}">{{tocnr}} {{toctitle}}</a> 
+            {{tocsub}}
+        </li>
+    {%/toc%}
+ 
+    {{toc}}
+    <!--end-toc-->
+  
+    {%mainparam%}
+        <div class="params">
+            {{params}}
+        </div>
+    {%/mainparam%}
+  
+    {%param%}
+        <div class="param">
+            <div class="first"><span class="name">{{paramname}}</span> (<span class="type">{{paramtype}}</span>) {{paramset}}</div>
+            {{paramdesc}}
+        </div>
+    {%/param%}
+  
+    {%element%}
+  
+        <h{{elmh}} id="{{elmurl}}">{{elmname}}</h{{elmh}}>
+        
+        <div>
+            <p><code>{{elmtitle}}</code></p>
+        </div>
+        
+        {{params}}
+        
+        <div>{{elmdesc}}</div>
+  
+    {%/element%}
+    
+    <div>
+        {{elements}}
+    </div>
