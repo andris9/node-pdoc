@@ -19,9 +19,13 @@ Usage
 
 `node pdoc.js -i include_dir -o docs.html`
 
-Example to generate docs from .js files from the examples directory
+  - **-i** directory where the .js files reside. Nested directories are supported.
+  - **-o** single file for the final documentation. Optional, defaults to *docs-timestamp.html*
 
-`node pdoc.js -i examples -o examples/output.html`
+Example
+-------
+
+See *output.html* in examples directory - it is created from *source.js* with node-pdoc. You can re-create the file with `node pdoc.js -i examples -o examples/output.html` 
 
 Supported markup
 ----------------
