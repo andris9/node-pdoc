@@ -15,4 +15,14 @@ Installation
 Usage
 -----
 
-`node pdoc.js -i include_dir -o docs.html file1.js file2.js`
+`node pdoc.js -i include_dir -o docs.html`
+
+
+Supported markup
+----------------
+
+Node-pdoc doesn't support Prototype classes and mixins. Currently constants are also not supported. Everything else should be quite fine.
+
+See [PDOC manual](http://pdoc.org/syntax.html) for documentation.
+
+
