@@ -27,8 +27,8 @@ function parserMain(stairs, fname, original, lines){
     
     tags = fline.split(",");
     block.tags = [];
-    for(var i=0; i<block.tags.length; i++){
-        tags[i] = block.tags[i].trim();
+    for(var i=0; i<tags.length; i++){
+        tags[i] = tags[i].trim();
         if(tags[i].length){
             block.tags.push(tags[i]);
         }

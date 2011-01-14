@@ -78,7 +78,7 @@ exports.dump = function(contents, fname, callback){
             
             elm.update("elmname", linear_list[i].nr+". "+linear_list[i].name);
             
-            title = linear_list[i].name + linear_list[i].paramStr;
+            title = '<span class="methodname">'+linear_list[i].name+'</span>' + linear_list[i].paramStr;
             if(linear_list[i].datatype){
                 title += " → "+linear_list[i].datatype;
             }
@@ -111,8 +111,8 @@ exports.dump = function(contents, fname, callback){
             }
             
             elm.update("elmtitle", title);
-            elm.update("elmdesc", linear_list[i].description);
-            
+            elm.update("elmdesc", linear_list[i].description || '');
+            elm.update("elmfile", linear_list[i].filename && "- "+linear_list[i].filename || '');
             
             template.unshift("elements", elm.generate());
         }

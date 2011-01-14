@@ -2,6 +2,7 @@
 <html>
     <head> 
         <title>{{title}}</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         
         <style type="text/css">
             body{
@@ -10,8 +11,15 @@
                 color: #333;
             }
             
+            #main{
+                width: 800px;
+                padding: 10px;
+                margin: 20px auto;
+            }
+            
             ul.toc{
                 list-style-type: none;
+                padding-left: 20px;
             }
             
             .params{
@@ -26,6 +34,16 @@
                 padding-left: 15px;
                 padding-bottom: 5px;
             }
+            
+            .params .title{
+                border-bottom: 1px solid #FFF;
+                margin-bottom: 5px;
+            }
+            
+            .params .methodname{
+                font-weight: bold;
+                font-size: 115%;
+            }
 
             .param .name{
                 font-weight: bold;
@@ -36,54 +54,56 @@
     </head> 
     <body> 
 
-    <h1>{{title}}</h1>
+        <div id="main">
+
+            <h1>{{title}}</h1>
    
-    <h2 id=contents>Table of contents</h2> 
-    <!--begin-toc--> 
+            <h2 id=contents>Table of contents</h2> 
+
+            {%maintoc%}
+                <ul class="toc">
+                    {{toclist}} 
+                </ul>
+            {%/maintoc%}
+  
+            {%toc%}
+                <li>    
+                    <a href="{{tocurl}}">{{tocnr}} {{toctitle}}</a> 
+                    {{tocsub}}
+                </li>
+            {%/toc%}
  
-    {%maintoc%}
-        <ul class="toc">
-            {{toclist}} 
-        </ul>
-    {%/maintoc%}
+            {{toc}}
   
-    {%toc%}
-        <li>    
-            <a href="{{tocurl}}">{{tocnr}} {{toctitle}}</a> 
-            {{tocsub}}
-        </li>
-    {%/toc%}
- 
-    {{toc}}
-    <!--end-toc-->
+            {%mainparam%}
+                {{params}}
+            {%/mainparam%}
   
-    {%mainparam%}
-        <div class="params">
-            {{params}}
-        </div>
-    {%/mainparam%}
+            {%param%}
+                <div class="param">
+                    <div class="first"><span class="name">{{paramname}}</span> (<span class="type">{{paramtype}}</span>) {{paramset}}</div>
+                    {{paramdesc}}
+                </div>
+            {%/param%}
   
-    {%param%}
-        <div class="param">
-            <div class="first"><span class="name">{{paramname}}</span> (<span class="type">{{paramtype}}</span>) {{paramset}}</div>
-            {{paramdesc}}
-        </div>
-    {%/param%}
+            {%element%}
   
-    {%element%}
-  
-        <h{{elmh}} id="{{elmurl}}">{{elmname}}</h{{elmh}}>
+            <h{{elmh}} id="{{elmurl}}">{{elmname}}</h{{elmh}}>
         
-        <div>
-            <p><code>{{elmtitle}}</code></p>
-        </div>
         
-        {{params}}
+            <div class="params">
+                <div class="title"><code>{{elmtitle}}</code><br /><em>{{elmfile}}</em></div>
+                {{params}}
+            </div>
         
-        <div>{{elmdesc}}</div>
+            <div>{{elmdesc}}</div>
   
-    {%/element%}
+            {%/element%}
     
-    <div>
-        {{elements}}
-    </div>
+            <div>
+                {{elements}}
+            </div>
+
+        </div>
+    </body>
+</html>
